@@ -22,13 +22,23 @@ class Queue:
         return len(self.queue)
 
     def enqueue(self, value):
-        self.queue.append(value)
+        self.queue.insert(0, value)
 
     def dequeue(self):
         if len(self.queue) == 0:
             return
         
         else:
-            item = self.queue[0]
+            item = self.queue[len(self.queue) - 1]
             self.queue.remove(item)
             return item
+
+q = Queue()
+
+q.enqueue(5)
+q.enqueue(6)
+q.enqueue(4)
+
+print(q.dequeue())
+print(q.dequeue())
+print(q.dequeue())
